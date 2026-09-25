@@ -107,12 +107,6 @@ Mengamati berita kategori TEKNOLOGI setiap 2 detik...
 === Simulasi selesai ===
 ```
 
-> **Catatan:** Repository mensimulasikan kegagalan network secara acak
-> (±10% untuk feed berita, ±5% untuk detail berita). Jika muncul baris
-> seperti `>> [ERROR] Gagal mengambil data berita dari server` atau
-> `❌ Gagal mengambil detail berita`, itu **bukan bug** — ini justru
-> membuktikan fitur error handling (`.catch` dan `try-catch`) bekerja
-> dengan benar. Jalankan program beberapa kali untuk melihatnya.
 
 ## Konsep Kotlin yang Digunakan
 
