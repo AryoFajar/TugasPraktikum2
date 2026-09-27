@@ -1,4 +1,5 @@
 import org.jetbrains.kotlin.gradle.dsl.JvmTarget
+import org.jetbrains.kotlin.gradle.targets.jvm.KotlinJvmTarget
 
 plugins {
     alias(libs.plugins.kotlinMultiplatform)
@@ -32,9 +33,6 @@ kotlin {
     }
     
     sourceSets {
-        jvmMain {
-            kotlin.exclude("com/example/tugaspraktikum2/newsfeed/main.kt")
-        }
         androidMain.dependencies {
             implementation(libs.compose.uiToolingPreview)
             implementation(libs.compose.uiTooling)
@@ -59,3 +57,21 @@ kotlin {
 dependencies {
     androidRuntimeClasspath(libs.compose.uiTooling)
 }
+
+val jvmTarget = kotlin.targets.named<KotlinJvmTarget>("jvm")
+
+val configureSimulator: JavaExec.() -> Unit = {
+    group = "application"
+    val targetMainClass = project.findProperty("mainClass")?.toString() ?: "com.example.tugaspraktikum2.newsfeed.MainKt"
+    mainClass.set(targetMainClass)
+    val mainCompilation = jvmTarget.get().compilations.getByName("main")
+    val validOutputs = mainCompilation.output.allOutputs.files.filterNotNull().filter { it.exists() }
+    val validRuntime = mainCompilation.runtimeDependencyFiles.files.filterNotNull()
+    classpath = files(validOutputs, validRuntime)
+}
+
+tasks.register<JavaExec>("com.example.tugaspraktikum2.newsfeed.MainKt.main()", configureSimulator)
+tasks.register<JavaExec>("runSimulator", configureSimulator)
+
+
+
