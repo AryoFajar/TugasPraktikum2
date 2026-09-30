@@ -13,7 +13,7 @@ Aplikasi profil sederhana yang dibuat dengan **Compose Multiplatform** sebagai t
 ## Screenshot
 
 ### Desktop
-[!Uploading Cuplikan layar 2026-09-30 205250.png]()
+[Uploading Cuplikan layar 2026-09-30 205250.png]()
 [Tampilan Desktop]
 
 ## Fitur
