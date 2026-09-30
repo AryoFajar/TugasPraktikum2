@@ -94,8 +94,7 @@ fun ProfileScreen() {
         ProfileCard(title = "Tentang Saya") {
             Text(
                 text = "Halo! Saya Aryo, mahasiswa Teknik Informatika Institut Teknologi " +
-                        "Sumatera yang sedang belajar Membuat Profile dengan " +
-                        "Android Studio.",
+                        "Sumatera",
                 color = SubtleText,
                 fontSize = 14.sp
             )
