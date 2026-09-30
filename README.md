@@ -14,9 +14,7 @@ This is a Kotlin Multiplatform project targeting Android, Desktop (JVM).
 Use the run configurations provided by the run widget in your IDE's toolbar. You can also use these commands and options:
 
 - Android app: `./gradlew :androidApp:assembleDebug`
-- Desktop app:
-  - Hot reload: `./gradlew :desktopApp:hotRun --auto`
-  - Standard run: `./gradlew :desktopApp:run`
+- Desktop app: `./gradlew :desktopApp:run`
 
 ### Running tests
 
