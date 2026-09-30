@@ -14,7 +14,6 @@ Aplikasi profil sederhana yang dibuat dengan **Compose Multiplatform** sebagai t
 
 ### Desktop
 <img width="1917" height="1048" alt="desktop" src="https://github.com/user-attachments/assets/d1d139ec-9802-4ef7-a2f6-8036d90018cb" />
-[Tampilan Desktop]
 
 ## Fitur
 
