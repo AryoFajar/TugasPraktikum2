@@ -1,28 +1,63 @@
-This is a Kotlin Multiplatform project targeting Android, Desktop (JVM).
+# My Profile App — Tugas Praktikum Minggu 3
 
-* [/shared](./shared/src) is for code that will be shared across your Compose Multiplatform applications.
-  It contains several subfolders:
-  - [commonMain](./shared/src/commonMain/kotlin) is for code that’s common for all targets.
-  - Other folders are for Kotlin code that will be compiled for only the platform indicated in the folder name.
-    For example, if you want to use Apple’s CoreCrypto for the iOS part of your Kotlin app,
-    the [iosMain](./shared/src/iosMain/kotlin) folder would be the right place for such calls.
-    Similarly, if you want to edit the Desktop (JVM) specific part, the [jvmMain](./shared/src/jvmMain/kotlin)
-    folder is the appropriate location.
+Aplikasi profil sederhana yang dibuat dengan **Compose Multiplatform** sebagai tugas praktikum mata kuliah **Pengembangan Aplikasi Mobile (IF25-22017)**, Program Studi Teknik Informatika, Institut Teknologi Sumatera.
 
-### Running the apps
+## Identitas
 
-Use the run configurations provided by the run widget in your IDE's toolbar. You can also use these commands and options:
+| | |
+|---|---|
+| **Nama** | Aryo Fajar Pratomo |
+| **NIM** | 124140012 |
+| **Email** | aryo.124140012@student.itera.ac.id |
 
-- Android app: `./gradlew :androidApp:assembleDebug`
-- Desktop app: `./gradlew :desktopApp:run`
+## Screenshot
 
-### Running tests
+### Desktop
+[![Uploading Cuplikan layar 2026-09-30 205250.png]()
+[Tampilan Desktop]
 
-Use the run button in your IDE's editor gutter, or run tests using Gradle tasks:
+## Fitur
 
-- Android tests: `./gradlew :shared:testAndroidHostTest`
-- Desktop tests: `./gradlew :shared:jvmTest`
+- Header dengan foto profil berbentuk lingkaran, nama, dan NIM
+- Bio singkat
+- Informasi kontak: Email, Phone, Location
+- Tombol untuk menampilkan atau menyembunyikan kontak dengan animasi (`AnimatedVisibility`)
+- Tema gelap dengan warna merah dan hitam yang disesuaikan dengan foto profil
 
----
+## Composable Functions
 
-Learn more about [Kotlin Multiplatform](https://www.jetbrains.com/help/kotlin-multiplatform-dev/get-started.html)…
+| Nama | Fungsi |
+|---|---|
+| `ProfileScreen` | Halaman utama yang menyusun seluruh komponen dengan `Column` |
+| `ProfileHeader` | Header berisi foto profil, nama, dan status (`Box` + `Column`) |
+| `ProfileCard` | Kartu pembungkus dengan judul section, isinya berupa slot yang bisa dipakai ulang |
+| `InfoItem` | Satu baris informasi berisi ikon, label, dan nilai (`Row`) |
+| `ProfileActions` | Baris tombol aksi (`Row` dengan `weight`) |
+
+## Komponen yang Digunakan
+
+- **Layout:** `Column`, `Row`, `Box`
+- **UI Components:** `Text`, `Button`, `OutlinedButton`, `Image`, `Icon`, `Card`
+- **Modifier:** `fillMaxWidth`, `fillMaxSize`, `padding`, `size`, `height`, `width`, `weight`, `background`, `border`, `clip`, `verticalScroll`
+- **Lainnya:** `AnimatedVisibility`, `remember` + `mutableStateOf`, `MaterialTheme` dengan `darkColorScheme`
+
+
+
+## Cara Menjalankan
+
+Lewat Android Studio:
+ 
+1. Pilih konfigurasi **desktopApp** pada dropdown run di bagian atas.
+2. Klik tombol **Run** (▶) atau tekan `Shift + F10`.
+Lewat terminal:
+ 
+```bash
+./gradlew :desktopApp:run
+```
+ 
+Pengguna Windows dapat memakai `gradlew.bat :desktopApp:run`.
+
+## Teknologi
+
+- Kotlin
+- Compose Multiplatform
