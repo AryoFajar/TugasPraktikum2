@@ -12,20 +12,19 @@ fun main() = runBlocking {
     println("=== News Feed Simulator dimulai ===")
     println("Mengamati berita kategori TEKNOLOGI setiap 2 detik...\n")
 
-
-    launch {
+    val readCountJob = launch {
         manager.readCount.collect { count ->
             println(">> [StateFlow] Total berita sudah dibaca: $count")
         }
     }
 
-    launch {
+    val errorJob = launch {
         manager.lastError.collect { error ->
             if (error != null) println(">> [ERROR] $error")
         }
     }
 
-    launch {
+    val feedJob = launch {
         manager.latestFeed.collect { list ->
             list.lastOrNull()?.let { newest ->
                 println("📰 Berita baru: ${newest.displayTitle}")
@@ -50,5 +49,10 @@ fun main() = runBlocking {
     delay(1500L)
 
     manager.close()
+
+    readCountJob.cancel()
+    errorJob.cancel()
+    feedJob.cancel()
+
     println("\n=== Simulasi selesai ===")
 }
